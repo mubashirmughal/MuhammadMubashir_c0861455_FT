@@ -8,24 +8,26 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    
     @IBOutlet weak var number: UILabel!
     @IBOutlet weak var even: UILabel!
     @IBOutlet weak var odd: UILabel!
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
     
     var timer: Timer?
     var seconds = 5
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
         
-        let tapEven = UITapGestureRecognizer(target: self, action: #selector(checkEven))
-        let tapOdd = UITapGestureRecognizer(target: self, action: #selector(checkOdd))
-        
-        even.addGestureRecognizer(tapEven)
-        odd.addGestureRecognizer(tapOdd)
+        let tapeven = UITapGestureRecognizer(target: self, action: #selector(checkEven))
+        let tapodd = UITapGestureRecognizer(target: self, action: #selector(checkOdd))
+   
+        even.addGestureRecognizer(tapeven)
+        odd.addGestureRecognizer(tapodd)
         
         loadRandomNumber()
     }
@@ -36,7 +38,7 @@ class ViewController: UIViewController {
             print("Even")
         }
         else {
-            image.image = UIImage(named: "wrong")
+            imageView.image = UIImage(named: "wrong")
             print("wrong answer")
         }
     }
@@ -44,23 +46,23 @@ class ViewController: UIViewController {
     @objc func checkOdd() {
         let number = Int(self.number.text!) ?? 0
         if isEven(number: number) {
-            print("Even")
+            print("odd")
         }
         else {
-            print("Odd")
+            imageView.image = UIImage(named: "wrong")
+            print("wrong answer")
         }
     }
     
     func loadRandomNumber() {
-        let number = Int(arc4random_uniform(100))
+        let number = Int(arc4random_uniform(99))
         self.number.text = "\(number)"
-        image.image = UIImage(named: "")
-        seconds = 6
     }
     
     func isEven(number: Int) -> Bool {
-        if number / 2 == 0 {return true}
-        else {return false}
+        if number % 2 == 0 {return false}
+        //else {return false}
+        return true
       
     }
     
