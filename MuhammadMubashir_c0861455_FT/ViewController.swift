@@ -59,11 +59,14 @@ class ViewController: UIViewController {
     }
     
     func isEven(number: Int) -> Bool {
-        if number % 2 == 0 {return false}
-        //else {return false}
-        return true
-      
+        let i = 2
+        if number % i == 0 {
+            return true
+        } else {
+            return false
+        }
     }
+    
     
 
 }
