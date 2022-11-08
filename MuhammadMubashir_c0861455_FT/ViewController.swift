@@ -20,6 +20,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let tapEven = UITapGestureRecognizer(target: self, action: #selector(checkEven))
+        let tapOdd = UITapGestureRecognizer(target: self, action: #selector(checkOdd))
+        
+        even.addGestureRecognizer(tapEven)
+        odd.addGestureRecognizer(tapOdd)
+        
+        loadRandomNumber()
     }
 
     @objc func checkEven() {
