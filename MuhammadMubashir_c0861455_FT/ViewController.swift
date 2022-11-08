@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
         
         let tapeven = UITapGestureRecognizer(target: self, action: #selector(checkEven))
         let tapodd = UITapGestureRecognizer(target: self, action: #selector(checkOdd))
